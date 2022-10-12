@@ -1,0 +1,21 @@
+{
+  "editor.formatOnSave": true,
+  "stylelint.validate": ["css", "scss", "vue"],
+  "eslint.validate": ["ts", "tsx"],
+  "[scss]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[vue]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    }
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  }
+}

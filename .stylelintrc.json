@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-property-sort-order-smacss",
+    "stylelint-prettier"
+  ],
+  "plugins": ["stylelint-scss"],
+  "overrides": [
+    {
+      "files": ["**/*.vue"],
+      "customSyntax": "postcss-html"
+    }
+  ],
+  "rules": {
+    "no-empty-first-line": null,
+    "string-quotes": null,
+    "selector-id-pattern": null,
+    "selector-class-pattern": null
+  }
+}
