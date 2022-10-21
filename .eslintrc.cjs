@@ -13,7 +13,7 @@ module.exports = {
     'vue/multi-word-component-names': [
       'error',
       {
-        ignores: ['Button'],
+        ignores: ['Button', 'Top', 'Article'],
       },
     ],
     'import/prefer-default-export': 'off',
