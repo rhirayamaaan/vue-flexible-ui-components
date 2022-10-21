@@ -25,28 +25,6 @@ import SymbolText from './components/parts/SymbolText.vue'
             またそのなかでいっしょになったたくさんのひとたち、ファゼーロとロザーロ、羊飼のミーロや、顔の赤いこどもたち、地主のテーモ、山猫博士のボーガント・デストゥパーゴなど、いまこの暗い巨きな石の建物のなかで考えていると、みんなむかし風のなつかしい青い幻燈のように思われます。では、わたくしはいつかの小さなみだしをつけながら、しずかにあの年のイーハトーヴォの五月から十月までを書きつけましょう。
           </p>
         </div>
-        <ul class="card__buttons">
-          <li class="card__button">
-            <Button tag-name="button" theme="border">
-              <SymbolText>
-                <template #symbol><Bookmark size="18" /></template>
-                <template #text
-                  ><span class="card__buttonText">保存する</span></template
-                >
-              </SymbolText>
-            </Button>
-          </li>
-          <li class="card__button">
-            <Button tag-name="a" href="#">
-              <SymbolText position="backward">
-                <template #symbol><ChevronRight size="18" /></template>
-                <template #text
-                  ><span class="card__buttonText">もっと見る</span></template
-                >
-              </SymbolText>
-            </Button>
-          </li>
-        </ul>
         <ul class="card__notes">
           <li class="card__note">
             <SymbolText vertical-align="top">
@@ -57,6 +35,30 @@ import SymbolText from './components/parts/SymbolText.vue'
             </SymbolText>
           </li>
         </ul>
+        <div class="card__detailFooter">
+          <ul class="card__buttons">
+            <li class="card__button">
+              <Button tag-name="button" theme="border">
+                <SymbolText>
+                  <template #symbol><Bookmark size="18" /></template>
+                  <template #text
+                    ><span class="card__buttonText">保存する</span></template
+                  >
+                </SymbolText>
+              </Button>
+            </li>
+            <li class="card__button">
+              <Button tag-name="a" href="#">
+                <SymbolText position="backward">
+                  <template #symbol><ChevronRight size="18" /></template>
+                  <template #text
+                    ><span class="card__buttonText">もっと見る</span></template
+                  >
+                </SymbolText>
+              </Button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -81,6 +83,8 @@ import SymbolText from './components/parts/SymbolText.vue'
   }
 
   .card__detail {
+    display: flex;
+    flex-direction: column;
     margin-left: 16px;
   }
 
@@ -93,9 +97,16 @@ import SymbolText from './components/parts/SymbolText.vue'
     margin-top: 8px;
   }
 
+  .card__detailFooter {
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
   .card__buttons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: -8px;
     margin-left: -8px;
   }
 
