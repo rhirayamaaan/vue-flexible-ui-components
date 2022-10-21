@@ -26,40 +26,33 @@ type BaseProps = {
   htmlType?: ButtonHTMLAttributes['type']
 }
 
-type ATagProps = PropsWithType<
-  ButtonHTMLAttributes | LabelHTMLAttributes,
-  never | undefined
-> &
+type ATagProps = PropsWithType<ButtonHTMLAttributes, never | undefined> &
+  PropsWithType<LabelHTMLAttributes, never | undefined> &
   AnchorHTMLAttributes &
   BaseProps & {
     tagName: typeof tagNames['A']
     htmlType?: never
   }
 
-type ButtonTagProps = PropsWithType<
-  AnchorHTMLAttributes | LabelHTMLAttributes,
-  never | undefined
-> &
+type ButtonTagProps = PropsWithType<AnchorHTMLAttributes, never | undefined> &
+  PropsWithType<LabelHTMLAttributes, never | undefined> &
   Omit<ButtonHTMLAttributes, 'disabled'> &
   BaseProps & {
     tagName: typeof tagNames['BUTTON']
     htmlType?: ButtonHTMLAttributes['type']
   }
 
-type LabelTagProps = PropsWithType<
-  AnchorHTMLAttributes | ButtonHTMLAttributes,
-  never | undefined
-> &
+type LabelTagProps = PropsWithType<AnchorHTMLAttributes, never | undefined> &
+  PropsWithType<ButtonHTMLAttributes, never | undefined> &
   LabelHTMLAttributes &
   BaseProps & {
     tagName: typeof tagNames['LABEL']
   }
 
 type SpanTagProps = Omit<
-  PropsWithType<
-    AnchorHTMLAttributes | ButtonHTMLAttributes | LabelHTMLAttributes,
-    never | undefined
-  >,
+  PropsWithType<AnchorHTMLAttributes, never | undefined> &
+    PropsWithType<ButtonHTMLAttributes, never | undefined> &
+    PropsWithType<LabelHTMLAttributes, never | undefined>,
   'onClick'
 > &
   HTMLAttributes &
@@ -109,37 +102,30 @@ const customizedAttrs = toAttrsWithoutProps(attrs, props)
 
 <template>
   <component
-    :is="props.tagName"
+    :is="tagName"
     v-bind="customizedAttrs"
     :class="[
       'button',
-      `button--${props.theme}`,
-      props.tagName !== tagNames.BUTTON && props.disabled && 'button--disabled',
+      `button--${theme}`,
+      tagName !== tagNames.BUTTON && disabled && 'button--disabled',
       attrs.class,
     ]"
-    :disabled="props.tagName === tagNames.BUTTON ? props.disabled : undefined"
-    :type="props.tagName === tagNames.BUTTON ? props.htmlType : undefined"
+    :disabled="tagName === tagNames.BUTTON ? disabled : undefined"
+    :type="tagName === tagNames.BUTTON ? htmlType : undefined"
   >
-    <span v-if="$slots.default" class="button__inner">
-      <slot />
-    </span>
+    <slot />
   </component>
 </template>
 
 <style scoped lang="scss">
 .button {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   padding: 8px 16px;
   border-radius: 8px;
   background-color: #222;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-
-  .button__inner {
-    flex-shrink: 1;
-  }
 
   &.button--border {
     padding: 7px 15px;

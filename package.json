@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "destyle.css": "^3.0.2",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-material-design-icons": "^5.1.2"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
