@@ -30,7 +30,7 @@ import SymbolText from './components/parts/SymbolText.vue'
             <SymbolText vertical-align="top">
               <template #symbol>※</template>
               <template #text
-                >この文章は「ポラーノの広場（著:宮沢賢治）」から引用しています。宮沢賢治が亡くなった翌年の1934年に発表された作品です。</template
+                >この文章は「ポラーノの広場（著:宮沢賢治）」から引用しています。この作品は著者が亡くなった翌年の1934年に発表された作品です。</template
               >
             </SymbolText>
           </li>
