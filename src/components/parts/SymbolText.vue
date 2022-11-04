@@ -79,7 +79,7 @@ const styles = computed(() => ({
   }
 
   &.symbolText--phrasing {
-    display: flex;
+    display: inline-flex;
   }
 }
 </style>
